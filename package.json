@@ -1,0 +1,26 @@
+{
+  "name": "team_generator",
+  "version": "1.0.0",
+  "description": "Generates team profiles based on input from user.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UNCValladaresHamlet/HW10_OOP_TeamProfile.git"
+  },
+  "author": "Hamlet Valladares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UNCValladaresHamlet/HW10_OOP_TeamProfile/issues"
+  },
+  "homepage": "https://github.com/UNCValladaresHamlet/HW10_OOP_TeamProfile#readme"
+}
