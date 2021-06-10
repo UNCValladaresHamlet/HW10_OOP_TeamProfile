@@ -161,6 +161,7 @@ function addIntern() {
                     const intern = new Intern(answers.name, answers.id, answers.email, answers.school)            
                     teamMembers.push(intern);
                     generateInternHTML(intern);
+                    createTeam();
 
                     }) 
             
@@ -202,10 +203,8 @@ function createTeam() {
             case "Intern":
                 addIntern();
                 break;
-                ;
             default:
-                console.log("Thanks, See you again!")
-          }
+                console.log('Successfully Created Team File!')          }
       });
 
 
