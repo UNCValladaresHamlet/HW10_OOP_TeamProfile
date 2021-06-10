@@ -81,6 +81,7 @@ const generateManagerHTML = (manager) => {
                 </ul>
             </div>
         </div>
+        
 `;
         fs.writeFileSync('./output/team.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
 
@@ -120,8 +121,8 @@ function addEngineer() {
         };
 
 const generateEngineerHTML = (engineer) => {
-            const html2 = `
-            <div class="card employee-card">
+    const html2 = `
+        <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${engineer.getName()}</h2>
                 <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
@@ -133,7 +134,9 @@ const generateEngineerHTML = (engineer) => {
                     <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
                 </ul>
             </div>
-        </div>`
+        </div>
+        
+        `
             fs.appendFile('./output/team.html', html2, (err) => err ? console.log(err) : '')
         };
 
@@ -169,24 +172,33 @@ function addIntern() {
             
             };
 
-            const generateInternHTML = (intern) => {
-                const html3 = `
-                <div class="card employee-card">
-                <div class="card-header">
-                    <h2 class="card-title">${intern.getName()}</h2>
-                    <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">ID: ${intern.getId()}</li>
-                        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                        <li class="list-group-item">School: ${intern.getSchool()}</li>
-                    </ul>
-                </div>
-            </div>`
+const generateInternHTML = (intern) => {
+    const html3 = `
+        <div class="card employee-card">
+            <div class="card-header">
+                <h2 class="card-title">${intern.getName()}</h2>
+                <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">ID: ${intern.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                    <li class="list-group-item">School: ${intern.getSchool()}</li>
+                </ul>
+            </div>
+        </div>`
             fs.appendFile('./output/team.html', html3, (err) => err ? console.log(err) : '')
             };
 
+generateBottom = () => {
+
+const bottomHTML =`
+    </div>
+</body>
+</html>
+`
+            fs.appendFile('./output/team.html', bottomHTML, (err) => err ? console.log(err) : '')
+            }
     
 function createTeam() {
     inquirer.prompt([
@@ -206,6 +218,7 @@ function createTeam() {
                 addIntern();
                 break;
             default:
+                generateBottom();
                 console.log('Successfully Created Team File!')          }
       });
 }
