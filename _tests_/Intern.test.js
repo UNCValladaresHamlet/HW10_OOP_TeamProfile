@@ -1,7 +1,10 @@
+const Intern = require("../lib/Intern");
 
-const Intern = require('../lib/Intern.js');
+ 
+describe("Intern Instance is created", () => {
+    const intern = new Intern;
+    it("returns Intern object", () => {
+        expect(typeof(intern)).toBe("object");
+    })
+})
 
-test('Can create a Intern instance.', () => {
-    const e = new Intern;
-    expect(typeof(e)).toBe('object');
-});
