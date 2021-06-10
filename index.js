@@ -35,9 +35,6 @@ function createManager() {
             teamMembers.push(manager);
             createTeam();
             generateManagerHTML(manager);
-            
-            // const htmlContent = generateHTML(answers);
-            // console.log("htmlContent:", htmlContent)
 
                 });
             };
@@ -85,7 +82,6 @@ const generateManagerHTML = (manager) => {
 `;
         fs.writeFileSync('./output/team.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
 
-                // console.log('managerHTML:', managerHTML)
 };
 
 
@@ -198,7 +194,7 @@ const bottomHTML =`
 </html>
 `
             fs.appendFile('./output/team.html', bottomHTML, (err) => err ? console.log(err) : '')
-            }
+};
     
 function createTeam() {
     inquirer.prompt([
