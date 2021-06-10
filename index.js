@@ -7,6 +7,7 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const Employee = require("./lib/Employee")
 
+function appStart() {
 function createManager() {
     console.log("Please Build Your Team:");
     inquirer.prompt([
@@ -206,8 +207,7 @@ function createTeam() {
             default:
                 console.log('Successfully Created Team File!')          }
       });
-
-
 }
-
 createManager();
+}
+appStart();
