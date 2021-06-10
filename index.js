@@ -5,12 +5,6 @@ const teamMembers = [];
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
-// const path = require("path");
-// const OUTPUT_DIR = path.resolve(__dirname, "output")
-// const outputPath = path.join(OUTPUT_DIR, "sample.html");
-// const render = require("./lib/render");
-
-
 const Employee = require("./lib/Employee")
 
 function createManager() {
@@ -85,9 +79,8 @@ const generateManagerHTML = (manager) => {
                 </ul>
             </div>
         </div>
-    </body>
-    </html>`;
-        fs.writeFileSync('./dist/sample.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
+`;
+        fs.writeFileSync('./output/team.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
 
                 // console.log('managerHTML:', managerHTML)
 };
@@ -139,57 +132,57 @@ const generateEngineerHTML = (engineer) => {
                 </ul>
             </div>
         </div>`
-            fs.appendFile('./dist/sample.html', html2, (err) => err ? console.log(err) : '')
+            fs.appendFile('./output/team.html', html2, (err) => err ? console.log(err) : '')
         };
 
 
-// function addIntern() {
-//             inquirer.prompt([
-//                 {
-//                     type: "input",
-//                     name: "name",
-//                     message: "What is your intern's name?",
-//                 },
-//                 {
-//                     type: "input",
-//                     name: "id",
-//                     message: "What is your intern's id?",
-//                 },
-//                 {
-//                     type: "input",
-//                     name: "email",
-//                     message: "What is your intern's email?",
-//                 },
-//                 {
-//                     type: "input",
-//                     name: "school",
-//                     message: "What is your intern's school?",
-//                 }]).then(answers => {
-//                     const intern = new Intern(answers.name, answers.id, answers.email, answers.school)            
-//                     teamMembers.push(intern);
-//                     generateInternHTML(intern);
+function addIntern() {
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "name",
+                    message: "What is your intern's name?",
+                },
+                {
+                    type: "input",
+                    name: "id",
+                    message: "What is your intern's id?",
+                },
+                {
+                    type: "input",
+                    name: "email",
+                    message: "What is your intern's email?",
+                },
+                {
+                    type: "input",
+                    name: "school",
+                    message: "What is your intern's school?",
+                }]).then(answers => {
+                    const intern = new Intern(answers.name, answers.id, answers.email, answers.school)            
+                    teamMembers.push(intern);
+                    generateInternHTML(intern);
 
-//                     }) 
+                    }) 
             
-//             };
+            };
 
-//             const generateInternHTML = (intern) => {
-//                 const html3 = `
-//                 <div class="card employee-card">
-//                 <div class="card-header">
-//                     <h2 class="card-title">${intern.getName()}</h2>
-//                     <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
-//                 </div>
-//                 <div class="card-body">
-//                     <ul class="list-group">
-//                         <li class="list-group-item">ID: ${intern.getId()}</li>
-//                         <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-//                         <li class="list-group-item">School: ${intern.getSchool()}</li>
-//                     </ul>
-//                 </div>
-//             </div>`
-//             fs.appendFile('./dist/sample.html', html3, (err) => err ? console.log(err) : '')
-//             };
+            const generateInternHTML = (intern) => {
+                const html3 = `
+                <div class="card employee-card">
+                <div class="card-header">
+                    <h2 class="card-title">${intern.getName()}</h2>
+                    <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${intern.getId()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                        <li class="list-group-item">School: ${intern.getSchool()}</li>
+                    </ul>
+                </div>
+            </div>`
+            fs.appendFile('./output/team.html', html3, (err) => err ? console.log(err) : '')
+            };
 
     
 function createTeam() {
@@ -206,10 +199,12 @@ function createTeam() {
             case "Engineer":
                 addEngineer();
                 break;
-            // case "Intern":
-            //     addIntern();
-            //     break;
-            // default:
+            case "Intern":
+                addIntern();
+                break;
+                ;
+            default:
+                console.log("Thanks, See you again!")
           }
       });
 
