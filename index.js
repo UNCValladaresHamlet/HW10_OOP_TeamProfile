@@ -85,8 +85,6 @@ const generateManagerHTML = (manager) => {
                 </ul>
             </div>
         </div>
-            </div>
-        </div>
     </body>
     </html>`;
         fs.writeFileSync('./dist/sample.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
