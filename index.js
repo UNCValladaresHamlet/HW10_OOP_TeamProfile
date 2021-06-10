@@ -67,6 +67,7 @@ const generateManagerHTML = (manager) => {
         </div>
         <div class="container">
             <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
                 <div class="card employee-card">
                     <div class="card-header">
                         <h2 class="card-title">${manager.getName()}</h2>
