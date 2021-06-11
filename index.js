@@ -55,7 +55,7 @@ function createManager() {
 
 
 //GenerateManagerHTML produces HTML markup for Manager information that is given by user input
-//variable is assigned a string that will be used to make output.
+//variable is assigned a string that will be used to make output HTML.
 //fs.writeFileSync - creates a new file if the specified data does not exist.
 
 //EXAMPLE of how write fs.writeFileSync :
@@ -106,7 +106,7 @@ const generateManagerHTML = (manager) => {
 
 };
 
-//If user chooses to "add team member" then the addEngineer function is invoked to capture USER RESPONSES about the Engineer.
+//If user chooses to "add team member" and chooses Engineer then the addEngineer function is invoked to capture USER RESPONSES about the Engineer.
 //Engineer variable imported above stores the name, id, email, github given by USER RESPONSES for later use.
 //Push method is used store Engineers's objects into teamMember array that is declared an empty array above.
 
@@ -143,7 +143,7 @@ function addEngineer() {
         };
 
 //GenerateEngineerHTML produces HTML markup for Engineer information that is given by user input
-//variable is assigned a string that will be used to make output HTMl.
+//variable is assigned a string that will be used to make output HTML.
 //The fs.appendFile() method is used to asynchronously append the given data to a file. A new file is created if it does not exist.
 
 //EXAMPLE of how write fs.appendFile() :
@@ -170,7 +170,7 @@ const generateEngineerHTML = (engineer) => {
         };
 
 
-//If user chooses to "add team member" then the addIntern function is invoked to capture USER RESPONSES about the Intern.
+//If user chooses to "add team member" and chooses Intern then the addIntern function is invoked to capture USER RESPONSES about the Intern.
 //Intern variable imported above stores the name, id, email, school given by USER RESPONSES for later use.
 //Push method is used store Intern's objects into teamMember array that is declared an empty array above.
 
@@ -230,6 +230,8 @@ const generateInternHTML = (intern) => {
         </div>`
             fs.appendFile('./output/team.html', html3, (err) => err ? console.log(err) : '')
             };
+
+//generateBottom functions adds the ending syntax to the output HTML.
 
 generateBottom = () => {
 
