@@ -1,11 +1,25 @@
-const inquirer = require('inquirer'); 
-const fs = require('fs');
+const inquirer = require('inquirer');  //collecting user input
+const fs = require('fs'); //writing to file system
 
-const teamMembers = [];
-const Manager = require("./lib/Manager")
+const teamMembers = []; //declared teamMembers and set that to a empty array to capture the employee input from user
+
+const Manager = require("./lib/Manager")  
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const Employee = require("./lib/Employee")
+//Import Module using require()
+//To include a module, use the require() function with the name of the module:
+
+
+//function appStart that will start the prompt questions for user
+//Wrote inquirer questions for Manager, Engineer, and Intern
+
+
+//New keyword in JavaScript is used to create an instance of an object that has a constructor function.
+//The new object’s internal ‘Prototype’ property (__proto__) is set the same as the prototype of the constructing function.
+//Manager variable imported above stores the name, id, email, officenumber given by USER RESPONSES for later use.
+//Push method is used store Manager's objects into teamMember array that is declared an empty array above
+
 
 function appStart() {
 function createManager() {
@@ -38,6 +52,14 @@ function createManager() {
 
                 });
             };
+
+
+//GenerateManagerHTML produces HTML markup for Manager information that is given by user input
+//variable is assigned a string that will be used to make output.
+//fs.writeFileSync - creates a new file if the specified data does not exist.
+
+//EXAMPLE of how write fs.writeFileSync :
+//fs.writefilesync("destination folder", variable we defined as string that has output HTML, (err) => err ? console.log(err) : '')
 
 
 const generateManagerHTML = (manager) => {
@@ -84,6 +106,9 @@ const generateManagerHTML = (manager) => {
 
 };
 
+//If user chooses to "add team member" then the addEngineer function is invoked to capture USER RESPONSES about the Engineer.
+//Engineer variable imported above stores the name, id, email, github given by USER RESPONSES for later use.
+//Push method is used store Engineers's objects into teamMember array that is declared an empty array above.
 
 function addEngineer() {
         inquirer.prompt([
@@ -114,7 +139,15 @@ function addEngineer() {
 
             });
         
+
         };
+
+//GenerateEngineerHTML produces HTML markup for Engineer information that is given by user input
+//variable is assigned a string that will be used to make output HTMl.
+//The fs.appendFile() method is used to asynchronously append the given data to a file. A new file is created if it does not exist.
+
+//EXAMPLE of how write fs.appendFile() :
+//fs.appendFile("destination folder", variable we defined as string that has output HTML, (err) => err ? console.log(err) : '')
 
 const generateEngineerHTML = (engineer) => {
     const html2 = `
@@ -136,6 +169,10 @@ const generateEngineerHTML = (engineer) => {
             fs.appendFile('./output/team.html', html2, (err) => err ? console.log(err) : '')
         };
 
+
+//If user chooses to "add team member" then the addIntern function is invoked to capture USER RESPONSES about the Intern.
+//Intern variable imported above stores the name, id, email, school given by USER RESPONSES for later use.
+//Push method is used store Intern's objects into teamMember array that is declared an empty array above.
 
 function addIntern() {
             inquirer.prompt([
@@ -168,6 +205,14 @@ function addIntern() {
             
             };
 
+//GenerateInternHTML produces HTML markup for Intern information that is given by user input
+//variable is assigned a string that will be used to make output HTMl.
+//The fs.appendFile() method is used to asynchronously append the given data to a file. A new file is created if it does not exist.
+
+//EXAMPLE of how write fs.appendFile() :
+//fs.appendFile("destination folder", variable we defined as string that has output HTML, (err) => err ? console.log(err) : '')
+
+
 const generateInternHTML = (intern) => {
     const html3 = `
         <div class="card employee-card">
@@ -195,7 +240,11 @@ const bottomHTML =`
 `
             fs.appendFile('./output/team.html', bottomHTML, (err) => err ? console.log(err) : '')
 };
-    
+
+
+//After input is given for employee this createTeam function runs.
+//This allows the user to choose which type of employee they want to add (Intern or Engineer).
+//Switch statement is created to either add an employee (run addIntern/addEngineer) or by default generate output HTML.
 function createTeam() {
     inquirer.prompt([
         {
@@ -218,6 +267,6 @@ function createTeam() {
                 console.log('Successfully Created Team File!')          }
       });
 }
-createManager();
+createManager(); //function invoked to run first (manager questions get asked first)
 }
 appStart();
