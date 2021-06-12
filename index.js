@@ -102,7 +102,8 @@ const generateManagerHTML = (manager) => {
         </div>
         
 `;
-        fs.writeFileSync('./output/team.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
+        fs.writeFileSync('./dist/team.html', managerHTML , (err) => err ? console.log(err) : console.log('Successfully created file!'))
+
 
 };
 
@@ -166,7 +167,7 @@ const generateEngineerHTML = (engineer) => {
         </div>
         
         `
-            fs.appendFile('./output/team.html', html2, (err) => err ? console.log(err) : '')
+            fs.appendFile('./dist/team.html', html2, (err) => err ? console.log(err) : '')
         };
 
 
@@ -228,8 +229,8 @@ const generateInternHTML = (intern) => {
                 </ul>
             </div>
         </div>`
-            fs.appendFile('./output/team.html', html3, (err) => err ? console.log(err) : '')
-            };
+        fs.appendFile('./dist/team.html', html3, (err) => err ? console.log(err) : '')
+    };
 
 //generateBottom functions adds the ending syntax to the output HTML.
 
@@ -240,7 +241,7 @@ const bottomHTML =`
 </body>
 </html>
 `
-            fs.appendFile('./output/team.html', bottomHTML, (err) => err ? console.log(err) : '')
+            fs.appendFile('./dist/team.html', bottomHTML, (err) => err ? console.log(err) : '')
 };
 
 
